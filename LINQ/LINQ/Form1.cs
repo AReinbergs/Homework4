@@ -94,7 +94,7 @@ namespace LINQ
             var employeeList = GetEmployeeList();
             SetDataIntoGrid(employeeList.Where(x => 
             (x.Name.ToLower().Contains("i") || x.Name.ToLower().Contains("e"))&&
-            (x.Surname.ToLower().Contains("i")||x.Surname.ToLower().Contains("e"))).ToList());
+            (x.Surname.ToLower().Contains("i")||x.Surname.ToLower().Contains("e"))).OrderByDescending(x=>x.Surname).ThenBy(x=>x.Name).ToList());
         }
 
         private void button3_Click(object sender, EventArgs e)
