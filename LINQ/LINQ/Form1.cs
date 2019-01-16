@@ -108,7 +108,7 @@ namespace LINQ
         {
             var employeeList = GetEmployeeList();
             SetDataIntoGrid(employeeList.Where(x =>
-            (x.Name.ToLower().Intersect(x.Surname.ToLower().Intersect(x.FacultyName.ToLower()))).Count() > 0).ToList());
+            (x.Name.ToLower().Intersect(x.Surname.ToLower().Intersect(x.FacultyName.ToLower()))).Count() > 1).ToList());
             
         }
 
