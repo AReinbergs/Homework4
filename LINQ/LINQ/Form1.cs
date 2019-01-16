@@ -108,12 +108,11 @@ namespace LINQ
         {
             var employeeList = GetEmployeeList();
             SetDataIntoGrid(employeeList.Where(x =>
-            (x.Name.Distinct().Count() < x.Name.Count()) &&
-            (x.Surname.Distinct().Count() < x.Surname.Count()) &&
-            (x.FacultyName.Distinct().Count() < x.FacultyName.Count())).OrderBy(x=> x.Name).ToList());
+            (x.Name.ToLower().Intersect(x.Surname.ToLower().Intersect(x.FacultyName.ToLower()))).Count() > 0).ToList());
+            
         }
 
-        private void button5_Click(object sender, EventArgs e)
+    private void button5_Click(object sender, EventArgs e)
         {
             var employeeList = GetEmployeeList();
             SetDataIntoGrid(employeeList.Where(x =>
